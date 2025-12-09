@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'wouter';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingBag } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { useMenuStore } from '@/lib/menuStore';
+import logoImage from '@assets/Priyanka_Aggarwal_(3)_1765274137793.png';
 
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [location] = useLocation();
+  const selectedItems = useMenuStore((state) => state.selectedItems);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,9 +39,7 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 h-full flex items-center justify-between gap-4">
         <Link href="/" data-testid="link-logo">
           <div className="flex items-center gap-2">
-            <span className="font-serif text-2xl md:text-3xl font-bold text-foreground">
-              Masala <span className="text-primary">Essence</span>
-            </span>
+            <img src={logoImage} alt="Masala Essence" className="h-14 w-auto" />
           </div>
         </Link>
 
@@ -58,21 +60,43 @@ export default function Navigation() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
+          {selectedItems.length > 0 && (
+            <Link href="/contact">
+              <Button variant="outline" className="relative" data-testid="button-quote-cart">
+                <ShoppingBag className="h-4 w-4 mr-2" />
+                Quote
+                <Badge className="ml-2" variant="default">
+                  {selectedItems.length}
+                </Badge>
+              </Button>
+            </Link>
+          )}
           <Link href="/contact">
             <Button data-testid="button-book-event">Book Your Event</Button>
           </Link>
         </div>
 
-        <Button
-          variant="ghost"
-          size="icon"
-          className="md:hidden"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          data-testid="button-mobile-menu"
-        >
-          {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </Button>
+        <div className="flex items-center gap-2 md:hidden">
+          {selectedItems.length > 0 && (
+            <Link href="/contact">
+              <Button variant="outline" size="icon" className="relative" data-testid="button-quote-cart-mobile">
+                <ShoppingBag className="h-5 w-5" />
+                <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {selectedItems.length}
+                </span>
+              </Button>
+            </Link>
+          )}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            data-testid="button-mobile-menu"
+          >
+            {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
+        </div>
       </div>
 
       {isMobileMenuOpen && (

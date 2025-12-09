@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Badge } from '@/components/ui/badge';
 import {
   Form,
   FormControl,
@@ -22,8 +23,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { Phone, Mail, MapPin, Clock, CheckCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, CheckCircle, X } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useMenuStore } from '@/lib/menuStore';
 
 const contactSchema = z.object({
   fullName: z.string().min(2, 'Name must be at least 2 characters'),
@@ -42,6 +44,7 @@ type ContactFormData = z.infer<typeof contactSchema>;
 export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const { toast } = useToast();
+  const { selectedItems, removeItem, clearItems } = useMenuStore();
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
@@ -61,7 +64,9 @@ export default function ContactForm() {
   const onSubmit = (data: ContactFormData) => {
     // todo: replace with actual API call
     console.log('Form submitted:', data);
+    console.log('Selected menu items:', selectedItems);
     setIsSubmitted(true);
+    clearItems();
     toast({
       title: 'Inquiry Received!',
       description: "We'll get back to you within 24 hours.",
@@ -109,6 +114,31 @@ export default function ContactForm() {
           <div className="lg:col-span-2">
             <Card>
               <CardContent className="p-6 md:p-8">
+                {selectedItems.length > 0 && (
+                  <div className="mb-8 p-4 bg-primary/5 rounded-lg border border-primary/20">
+                    <h3 className="font-semibold text-foreground mb-3">Selected Menu Items</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedItems.map((item) => (
+                        <Badge
+                          key={item.name}
+                          variant="secondary"
+                          className="pl-3 pr-1 py-1 flex items-center gap-1"
+                        >
+                          {item.name}
+                          <button
+                            type="button"
+                            onClick={() => removeItem(item.name)}
+                            className="ml-1 hover:bg-foreground/10 rounded-full p-0.5"
+                            data-testid={`button-remove-item-${item.name}`}
+                          >
+                            <X className="h-3 w-3" />
+                          </button>
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

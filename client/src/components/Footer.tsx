@@ -1,6 +1,7 @@
 import { Link } from 'wouter';
 import { Phone, Mail, MapPin, Clock } from 'lucide-react';
 import { SiInstagram, SiFacebook } from 'react-icons/si';
+import logoImage from '@assets/Priyanka_Aggarwal_(3)_1765274137793.png';
 
 export default function Footer() {
   return (
@@ -8,9 +9,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <span className="font-serif text-2xl font-bold text-foreground block mb-4">
-              Masala <span className="text-primary">Essence</span>
-            </span>
+            <img src={logoImage} alt="Masala Essence" className="h-16 w-auto mb-4" />
             <p className="text-muted-foreground mb-6 leading-relaxed">
               Crafting memorable experiences through exquisite cuisine and stunning event design
             </p>
