@@ -1,21 +1,24 @@
-import { Link } from 'wouter';
-import { Button } from '@/components/ui/button';
-import mandapImage from '@assets/generated_images/mandap_wedding_decoration.png';
-import corporateImage from '@assets/generated_images/corporate_event_decor_setup.png';
-import outdoorImage from '@assets/generated_images/outdoor_wedding_ceremony_setup.png';
-import tableImage from '@assets/generated_images/elegant_indian_event_table.png';
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import mandapImage from "@assets/generated_images/decor/gk_sukhmanisahib.JPG";
+import corporateImage from "@assets/generated_images/corporate_event_decor_setup.png";
+import outdoorImage from "@assets/generated_images/decor/birthday_decor.JPG";
+import tableImage from "@assets/generated_images/catering/lunch_layout_catering.JPG";
 
 // todo: remove mock functionality
 const galleryImages = [
-  { src: mandapImage, alt: 'Mandap wedding decoration', category: 'Wedding' },
-  { src: corporateImage, alt: 'Corporate event setup', category: 'Corporate' },
-  { src: outdoorImage, alt: 'Outdoor ceremony', category: 'Wedding' },
-  { src: tableImage, alt: 'Elegant table setting', category: 'Reception' },
+  { src: mandapImage, alt: "Mandap wedding decoration", category: "Wedding" },
+  { src: corporateImage, alt: "Corporate event setup", category: "Corporate" },
+  { src: outdoorImage, alt: "Outdoor ceremony", category: "Wedding" },
+  { src: tableImage, alt: "Elegant table setting", category: "Reception" },
 ];
 
 export default function GalleryPreview() {
   return (
-    <section className="py-20 md:py-32 bg-muted/30" data-testid="section-gallery-preview">
+    <section
+      className="pt-8 md:pt-12 pb-20 md:pb-32 bg-muted/30"
+      data-testid="section-gallery-preview"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
           <h2
@@ -52,7 +55,11 @@ export default function GalleryPreview() {
 
         <div className="text-center mt-12">
           <Link href="/gallery">
-            <Button variant="outline" size="lg" data-testid="button-view-gallery">
+            <Button
+              variant="outline"
+              size="lg"
+              data-testid="button-view-gallery"
+            >
               View Full Gallery
             </Button>
           </Link>

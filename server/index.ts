@@ -1,4 +1,6 @@
-import express, { type Request, Response, NextFunction } from "express";
+import "dotenv/config";
+console.log("ENV CHECK →", process.env.RESEND_API_KEY);
+import express, { Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
 import { serveStatic } from "./static";
 import { createServer } from "http";
@@ -14,10 +16,10 @@ declare module "http" {
 
 app.use(
   express.json({
-    verify: (req, _res, buf) => {
-      req.rawBody = buf;
+    verify: (req: Express.Request, _res: Response, buf: Buffer) => {
+      (req as any).rawBody = buf;
     },
-  }),
+  })
 );
 
 app.use(express.urlencoded({ extended: false }));
@@ -33,7 +35,7 @@ export function log(message: string, source = "express") {
   console.log(`${formattedTime} [${source}] ${message}`);
 }
 
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
   const start = Date.now();
   const path = req.path;
   let capturedJsonResponse: Record<string, any> | undefined = undefined;
@@ -85,14 +87,7 @@ app.use((req, res, next) => {
   // this serves both the API and the client.
   // It is the only port that is not firewalled.
   const port = parseInt(process.env.PORT || "5000", 10);
-  httpServer.listen(
-    {
-      port,
-      host: "0.0.0.0",
-      reusePort: true,
-    },
-    () => {
-      log(`serving on port ${port}`);
-    },
-  );
+  httpServer.listen(port, () => {
+    log(`serving on http://localhost:${port}`);
+  });
 })();

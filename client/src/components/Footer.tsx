@@ -1,7 +1,7 @@
-import { Link } from 'wouter';
-import { Phone, Mail, MapPin, Clock } from 'lucide-react';
-import { SiInstagram, SiFacebook } from 'react-icons/si';
-import logoImage from '@assets/Priyanka_Aggarwal_(3)_1765274137793.png';
+import { Link } from "wouter";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { SiInstagram, SiFacebook } from "react-icons/si";
+import logoImage from "@assets/Priyanka_Aggarwal_(3)_1765274137793.png";
 
 export default function Footer() {
   return (
@@ -9,13 +9,18 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 md:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <img src={logoImage} alt="Masala Essence" className="h-16 w-auto mb-4" />
+            <img
+              src={logoImage}
+              alt="Masala Essence"
+              className="h-16 w-auto mb-4"
+            />
             <p className="text-muted-foreground mb-6 leading-relaxed">
-              Crafting memorable experiences through exquisite cuisine and stunning event design
+              Crafting memorable experiences through exquisite cuisine and
+              stunning event design
             </p>
             <div className="flex gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/masala.essence?igsh=Zzl5bWlnZjF4eHQ5"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 data-testid="link-social-instagram"
               >
@@ -46,12 +51,17 @@ export default function Footer() {
               </Link>
               <Link href="/gallery">
                 <span className="text-muted-foreground hover:text-foreground transition-colors">
-                  Decor Gallery
+                  Gallery
                 </span>
               </Link>
               <Link href="/contact">
                 <span className="text-muted-foreground hover:text-foreground transition-colors">
                   Contact Us
+                </span>
+              </Link>
+              <Link href="/termsandconditions">
+                <span className="text-muted-foreground hover:text-foreground transition-colors">
+                  Terms and Conditions
                 </span>
               </Link>
             </nav>
@@ -62,27 +72,28 @@ export default function Footer() {
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-3">
                 <Phone className="h-5 w-5 text-primary mt-0.5" />
-                <span className="text-muted-foreground">(555) 123-4567</span>
+                <span className="text-muted-foreground">(91+) 9873378500</span>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="h-5 w-5 text-primary mt-0.5" />
-                <span className="text-muted-foreground">hello@masalaessence.com</span>
+                <span className="text-muted-foreground">
+                  masalaessenceofficial@gmail.com
+                </span>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 text-primary mt-0.5" />
-                <span className="text-muted-foreground">123 Event Avenue, City</span>
+                <span className="text-muted-foreground">
+                  Gurugram, Haryana, India
+                </span>
               </div>
-              <div className="flex items-start gap-3">
-                <Clock className="h-5 w-5 text-primary mt-0.5" />
-                <span className="text-muted-foreground">Mon-Sat: 9AM - 7PM</span>
-              </div>
+              <div className="flex items-start gap-3"></div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-border mt-12 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
-            2024 Masala Essence. All rights reserved.
+            2022 Masala Essence. All rights reserved. By Amaira Aggarwal
           </p>
         </div>
       </div>

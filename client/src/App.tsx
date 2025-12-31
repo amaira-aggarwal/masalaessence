@@ -8,6 +8,12 @@ import Home from "@/pages/Home";
 import Menu from "@/pages/Menu";
 import Gallery from "@/pages/Gallery";
 import Contact from "@/pages/Contact";
+import TermsAndConditions from "@/pages/TandC";
+import WhatsAppButton from "./components/WhatsappButton";
+import {
+  GoogleReCaptchaProvider,
+  useGoogleReCaptcha,
+} from "react-google-recaptcha-v3";
 
 function Router() {
   return (
@@ -16,6 +22,7 @@ function Router() {
       <Route path="/menu" component={Menu} />
       <Route path="/gallery" component={Gallery} />
       <Route path="/contact" component={Contact} />
+      <Route path="/termsandconditions" component={TermsAndConditions} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -24,10 +31,16 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Router />
-      </TooltipProvider>
+      <GoogleReCaptchaProvider
+        reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+      >
+        {/* routes / pages */}
+        <TooltipProvider>
+          <Toaster />
+          <Router />
+          <WhatsAppButton />
+        </TooltipProvider>
+      </GoogleReCaptchaProvider>
     </QueryClientProvider>
   );
 }

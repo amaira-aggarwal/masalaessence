@@ -1,11 +1,11 @@
-import { Link } from 'wouter';
-import { Button } from '@/components/ui/button';
-import { ChevronDown } from 'lucide-react';
-import heroImage from '@assets/generated_images/elegant_indian_event_table.png';
+import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
+import heroImage from "@assets/generated_images/decor/gk_sukhmanisahib.JPG";
 
 export default function HeroSection() {
   const scrollToContent = () => {
-    window.scrollTo({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+    window.scrollTo({ top: window.innerHeight * 0.8, behavior: "smooth" });
   };
 
   return (
@@ -37,7 +37,11 @@ export default function HeroSection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/contact">
-            <Button size="lg" className="text-lg px-8" data-testid="button-hero-cta">
+            <Button
+              size="lg"
+              className="text-lg px-8"
+              data-testid="button-hero-cta"
+            >
               Plan Your Event
             </Button>
           </Link>

@@ -1,40 +1,43 @@
-import { Link } from 'wouter';
-import { Card, CardContent } from '@/components/ui/card';
-import { UtensilsCrossed, Sparkles, Calendar } from 'lucide-react';
-import cateringImage from '@assets/generated_images/indian_catering_appetizers_display.png';
-import decorImage from '@assets/generated_images/mandap_wedding_decoration.png';
-import corporateImage from '@assets/generated_images/corporate_event_decor_setup.png';
+import { Link } from "wouter";
+import { Card, CardContent } from "@/components/ui/card";
+import { UtensilsCrossed, Sparkles, Calendar } from "lucide-react";
+import cateringImage from "@assets/generated_images/catering/lunch_layout_catering.JPG";
+import decorImage from "@assets/generated_images/decor/gk_sukhmanisahib.JPG";
+import corporateImage from "@assets/generated_images/corporate_event_decor_setup.png";
 
 const services = [
   {
     icon: UtensilsCrossed,
-    title: 'Catering',
+    title: "Catering",
     description:
-      'Authentic Indian cuisine crafted with traditional recipes and premium ingredients. From appetizers to desserts, we create menus that delight.',
+      "Authentic Indian cuisine crafted with traditional recipes and premium ingredients. From appetizers to desserts, we create menus that delight.",
     image: cateringImage,
-    link: '/menu',
+    link: "/menu",
   },
   {
     icon: Sparkles,
-    title: 'Decor',
+    title: "Decor",
     description:
-      'Transform any venue into a stunning celebration space with our elegant floral arrangements, lighting, and thematic designs.',
+      "Transform any venue into a stunning celebration space with our elegant floral arrangements, lighting, and thematic designs.",
     image: decorImage,
-    link: '/gallery',
+    link: "/gallery",
   },
   {
     icon: Calendar,
-    title: 'Full Event Planning',
+    title: "Full Event Planning",
     description:
-      'Complete event coordination from concept to execution. Let us handle every detail while you enjoy your special day.',
+      "Complete event coordination from concept to execution. Let us handle every detail while you enjoy your special day.",
     image: corporateImage,
-    link: '/contact',
+    link: "/contact",
   },
 ];
 
 export default function ServicesSection() {
   return (
-    <section className="py-20 md:py-32 bg-background" data-testid="section-services">
+    <section
+      className="pt-8 md:pt-12 pb-8 md:pb-20 bg-background"
+      data-testid="section-services"
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
           <h2
@@ -44,7 +47,8 @@ export default function ServicesSection() {
             Our Services
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            From intimate gatherings to grand celebrations, we bring your vision to life
+            From intimate gatherings to grand celebrations, we bring your vision
+            to life
           </p>
         </div>
 
@@ -69,7 +73,9 @@ export default function ServicesSection() {
                       {service.title}
                     </h3>
                   </div>
-                  <p className="text-muted-foreground leading-relaxed">{service.description}</p>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {service.description}
+                  </p>
                 </CardContent>
               </Card>
             </Link>
