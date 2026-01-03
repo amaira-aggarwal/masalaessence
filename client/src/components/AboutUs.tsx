@@ -1,12 +1,12 @@
 import { Card, CardContent } from "@/components/ui/card";
 import aboutImage from "@assets/generated_images/decor/gk_sukhmanisahib.JPG";
 import teamImage from "@assets/generated_images/catering/lunch_layout_catering.JPG";
+import { FadeUpSection } from "./ui/fadeUpSection";
 
 export default function AboutUs() {
   return (
     <section className="pt-8 md:pt-32 pb-8 md:pb-12 bg-background">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
-        {/* Header */}
         <div className="text-center mb-16">
           <h1 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
             About Masala Essence
@@ -16,8 +16,6 @@ export default function AboutUs() {
             planning, exceptional catering, and elegant décor.
           </p>
         </div>
-
-        {/* About Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
           <div className="aspect-[4/3] overflow-hidden rounded-lg">
             <img
@@ -46,8 +44,6 @@ export default function AboutUs() {
             </p>
           </div>
         </div>
-
-        {/* Values / Strengths */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {[
             {
@@ -66,7 +62,10 @@ export default function AboutUs() {
                 "From food presentation to final décor touches, we focus on the details that elevate an event from good to unforgettable.",
             },
           ].map((item, index) => (
-            <Card key={index} className="h-full">
+            <Card
+              key={index}
+              className="h-full transition-transform transform hover:scale-105 hover:border-primary hover:shadow-xl duration-300"
+            >
               <CardContent className="p-6">
                 <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
                   {item.title}

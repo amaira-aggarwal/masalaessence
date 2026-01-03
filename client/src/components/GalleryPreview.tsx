@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import mandapImage from "@assets/generated_images/decor/gk_sukhmanisahib.JPG";
 import corporateImage from "@assets/generated_images/corporate_event_decor_setup.png";
@@ -54,7 +54,7 @@ export default function GalleryPreview() {
         </div>
 
         <div className="text-center mt-12">
-          <Link href="/gallery">
+          <Link to="/gallery">
             <Button
               variant="outline"
               size="lg"

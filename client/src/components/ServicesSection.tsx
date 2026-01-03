@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import { Link } from "react-router-dom";
 import { Card, CardContent } from "@/components/ui/card";
 import { UtensilsCrossed, Sparkles, Calendar } from "lucide-react";
 import cateringImage from "@assets/generated_images/catering/lunch_layout_catering.JPG";
@@ -54,7 +54,7 @@ export default function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Link key={service.title} href={service.link}>
+            <Link key={service.title} to={service.link}>
               <Card
                 className="group overflow-hidden hover-elevate cursor-pointer h-full"
                 data-testid={`card-service-${index}`}

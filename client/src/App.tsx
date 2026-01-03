@@ -10,6 +10,7 @@ import Gallery from "@/pages/Gallery";
 import Contact from "@/pages/Contact";
 import TermsAndConditions from "@/pages/TandC";
 import WhatsAppButton from "./components/WhatsappButton";
+import ScrollToTop from "./components/ui/scrollToTop";
 import {
   GoogleReCaptchaProvider,
   useGoogleReCaptcha,
@@ -34,9 +35,9 @@ function App() {
       <GoogleReCaptchaProvider
         reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
       >
-        {/* routes / pages */}
         <TooltipProvider>
           <Toaster />
+          <ScrollToTop />
           <Router />
           <WhatsAppButton />
         </TooltipProvider>

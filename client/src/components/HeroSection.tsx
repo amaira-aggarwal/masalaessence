@@ -57,14 +57,15 @@ export default function HeroSection() {
           </Link>
         </div>
       </div>
-
-      <button
-        onClick={scrollToContent}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/70 hover:text-white transition-colors animate-bounce"
-        data-testid="button-scroll-down"
-      >
-        <ChevronDown className="h-8 w-8" />
-      </button>
+      <div className="absolute bottom-8 left-0 w-full flex justify-center">
+        <button
+          onClick={scrollToContent}
+          className=" text-white/70 hover:text-white transition-colors animate-bounce"
+          data-testid="button-scroll-down"
+        >
+          <ChevronDown className="h-8 w-8" />
+        </button>
+      </div>
     </section>
   );
 }

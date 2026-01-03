@@ -138,7 +138,7 @@ export default function MenuSection() {
         </div>
 
         <div
-          className="flex flex-wrap justify-center gap-3 mb-12 sticky top-20 bg-background py-4 z-40"
+          className="flex flex-wrap justify-center gap-3 mb-12 top-20 bg-background py-4 z-40"
           data-testid="nav-menu-categories"
         >
           {categories.map((cat) => (
