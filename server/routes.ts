@@ -60,8 +60,9 @@ export async function registerRoutes(
       }
 
       const { error } = await resend.emails.send({
-        from: "Masala Essence <onboarding@resend.dev>",
-        to: ["amairaagg2004@gmail.com"], // YOU receive the inquiry
+        from: "Masala Essence <contact@masalaessence.in>",
+        to: ["masalaessenceofficial@gmail.com"], // YOU receive the inquiry
+        replyTo: "masalaessenceofficial@gmail.com",
         subject: `New Inquiry`,
         html: `
           <h2>New Event Inquiry</h2>
