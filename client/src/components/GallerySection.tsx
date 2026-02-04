@@ -12,7 +12,7 @@ interface GalleryImage {
 
 const images = import.meta.glob(
   "@assets/generated_images/**/*.{png,jpg,JPG,jpeg}",
-  { eager: true, as: "url" }
+  { eager: true, as: "url" },
 );
 
 const galleryImages: GalleryImage[] = Object.entries(images).map(
@@ -24,7 +24,7 @@ const galleryImages: GalleryImage[] = Object.entries(images).map(
     else if (path.includes("/decor/")) category = "decor";
 
     return { src, category };
-  }
+  },
 );
 
 const filters: { key: FilterCategory; label: string }[] = [
@@ -53,11 +53,11 @@ export default function GallerySection() {
   const navigateImage = (direction: "prev" | "next") => {
     if (direction === "prev") {
       setCurrentImageIndex((prev) =>
-        prev === 0 ? filteredImages.length - 1 : prev - 1
+        prev === 0 ? filteredImages.length - 1 : prev - 1,
       );
     } else {
       setCurrentImageIndex((prev) =>
-        prev === filteredImages.length - 1 ? 0 : prev + 1
+        prev === filteredImages.length - 1 ? 0 : prev + 1,
       );
     }
   };
@@ -78,14 +78,16 @@ export default function GallerySection() {
         </div>
 
         <div
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex gap-3 mb-12
+             overflow-x-auto no-scrollbar
+             md:flex-wrap md:justify-center"
           data-testid="nav-gallery-filters"
         >
           {filters.map((filter) => (
             <button
               key={filter.key}
               onClick={() => setActiveFilter(filter.key)}
-              className={`px-6 py-2 rounded-full font-medium transition-colors ${
+              className={`px-6 py-2 rounded-full font-medium transition-colors whitespace-nowrap flex-shrink-0 ${
                 activeFilter === filter.key
                   ? "bg-primary text-primary-foreground"
                   : "bg-muted text-muted-foreground hover-elevate"
@@ -97,17 +99,19 @@ export default function GallerySection() {
           ))}
         </div>
 
-        <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+        <div className="columns-2 sm:columns-2 lg:columns-3 gap-4 space-y-4">
           {filteredImages.map((image, index) => (
             <div
               key={index}
-              className="break-inside-avoid group cursor-pointer"
+              className="break-inside-avoid group "
               onClick={() => openLightbox(index)}
               data-testid={`image-gallery-${index}`}
             >
-              <div className="relative overflow-hidden rounded-lg">
+              <div className="relative overflow-hidden rounded-lg ">
                 <img
                   src={image.src}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
@@ -118,7 +122,7 @@ export default function GallerySection() {
       </div>
 
       <Dialog open={lightboxOpen} onOpenChange={setLightboxOpen}>
-        <DialogContent className="max-w-5xl p-0 bg-black/95 border-none">
+        <DialogContent className="p-0 bg-black/90 border-none max-w-fit">
           <div className="relative">
             <Button
               variant="ghost"
@@ -130,11 +134,11 @@ export default function GallerySection() {
               <X className="h-6 w-6" />
             </Button>
 
-            <div className="flex items-center justify-center min-h-[60vh] p-4">
+            <div className="flex items-center justify-center p-4">
               {filteredImages[currentImageIndex] && (
                 <img
                   src={filteredImages[currentImageIndex].src}
-                  className="max-h-[80vh] object-contain rounded-lg"
+                  className="max-h-[70vh] max-w-[90vw] object-contain rounded-lg"
                 />
               )}
             </div>
