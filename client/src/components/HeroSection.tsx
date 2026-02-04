@@ -35,7 +35,7 @@ export default function HeroSection() {
           Premium Indian catering and exquisite event decor that transforms your
           special occasions into cherished memories
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        {/* <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link href="/contact">
             <Button
               size="lg"
@@ -55,7 +55,7 @@ export default function HeroSection() {
               View Our Menu
             </Button>
           </Link>
-        </div>
+        </div> */}
       </div>
       <div className="absolute bottom-8 left-0 w-full flex justify-center">
         <button

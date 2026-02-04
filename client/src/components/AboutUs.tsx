@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import aboutImage from "@assets/generated_images/decor/gk_sukhmanisahib.JPG";
-import teamImage from "@assets/generated_images/catering/lunch_layout_catering.JPG";
+import teamImage from "@assets/generated_images/us.JPG";
 import { FadeUpSection } from "./ui/fadeUpSection";
 
 export default function AboutUs() {
@@ -8,10 +8,10 @@ export default function AboutUs() {
     <section className="pt-8 md:pt-32 pb-8 md:pb-12 bg-background">
       <div className="max-w-7xl mx-auto px-6 md:px-8">
         <div className="text-center mb-16">
-          <h1 className="font-serif text-3xl md:text-4xl font-semibold text-foreground mb-4">
+          <h1 className="font-serif text-2xl md:text-3xl font-semibold text-foreground mb-4">
             About Masala Essence
           </h1>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-base max-w-xl mx-auto">
             Crafting memorable wedding and event experiences through thoughtful
             planning, exceptional catering, and elegant décor.
           </p>
@@ -44,7 +44,7 @@ export default function AboutUs() {
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
           {[
             {
               title: "Wedding-Focused Approach",
@@ -66,8 +66,8 @@ export default function AboutUs() {
               key={index}
               className="h-full transition-transform transform hover:scale-105 hover:border-primary hover:shadow-xl duration-300"
             >
-              <CardContent className="p-6">
-                <h3 className="font-serif text-xl font-semibold text-foreground mb-3">
+              <CardContent className="p-2 md:p-3">
+                <h3 className="font-serif text-xl font-semibold text-foreground mb-2">
                   {item.title}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
@@ -79,7 +79,7 @@ export default function AboutUs() {
         </div>
 
         {/* Team / Vision */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           <div>
             <h2 className="font-serif text-2xl font-semibold text-foreground mb-4">
               Our Vision
