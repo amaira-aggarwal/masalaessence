@@ -1,7 +1,6 @@
 import { useState } from "react";
 import EventCarouselModal from "./ui/eventCarouselModal";
 import corporateImage from "@assets/generated_images/corporate_event_decor_setup.png";
-import tableImage from "@assets/generated_images/catering/lunch_layout_catering.JPG";
 type GalleryEvent = {
   title: string;
   cover: string;

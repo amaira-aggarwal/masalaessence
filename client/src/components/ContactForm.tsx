@@ -346,7 +346,7 @@ export default function ContactForm() {
                                       <FormControl>
                                         <Checkbox
                                           checked={field.value?.includes(
-                                            service
+                                            service,
                                           )}
                                           onCheckedChange={(checked) => {
                                             return checked
@@ -356,8 +356,8 @@ export default function ContactForm() {
                                                 ])
                                               : field.onChange(
                                                   field.value?.filter(
-                                                    (v) => v !== service
-                                                  )
+                                                    (v) => v !== service,
+                                                  ),
                                                 );
                                           }}
                                           data-testid={`checkbox-service-${service
@@ -371,7 +371,7 @@ export default function ContactForm() {
                                     </FormItem>
                                   )}
                                 />
-                              )
+                              ),
                             )}
                           </div>
                           <FormMessage />
@@ -379,7 +379,7 @@ export default function ContactForm() {
                       )}
                     />
 
-                    <FormField
+                    {/* <FormField
                       control={form.control}
                       name="additionalDetails"
                       render={({ field }) => (
@@ -396,7 +396,7 @@ export default function ContactForm() {
                           <FormMessage />
                         </FormItem>
                       )}
-                    />
+                    /> */}
 
                     <Button
                       type="submit"
